@@ -1,6 +1,9 @@
 name: 'Publish UPM'
 description: 'Publish Unity package to UPM Registry'
 author: 'Tetsuya Mori'
+branding:
+  icon: 'box'
+  color: 'white'
 inputs:
   release_summary:
     description: 'Summary of Release'
