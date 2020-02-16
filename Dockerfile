@@ -1,6 +1,6 @@
 FROM alpine:3.9
 
-RUN sudo apt-get update && sudo apt-get install jq
+RUN apk update && apk add bash git npm jq
 
 COPY main.sh /main.sh
 

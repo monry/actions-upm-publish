@@ -1,6 +1,35 @@
 name: 'Publish UPM'
 description: 'Publish Unity package to UPM Registry'
 author: 'Tetsuya Mori'
+inputs:
+  release_summary:
+    description: 'Summary of Release'
+    required: true
+    default: ${{ github.event.release.name }}
+  release_body:
+    description: 'Body of Release'
+    required: true
+    default: ${{ github.event.release.body }}
+  release_version:
+    description: 'Version of Release'
+    required: true
+    default: ${{ github.event.release.tag_name }}
+  github_actor:
+    description: 'GitHub actor name'
+    required: true
+    default: ${{ github.actor }}
+  github_repository:
+    description: 'GitHub Repository name'
+    required: true
+    default: ${{ github.repository }}
+  github_token:
+    description: 'GitHub auth token'
+    required: true
+    default: ${{ secrets.GITHUB_TOKEN }}
+  npm_auth_token:
+    description: 'Auth token for UPM Registry'
+    required: true
+    default: ${{ secrets.NPM_AUTH_TOKEN }}
 runs:
   using: 'Docker'
   image: 'Dockerfile'
