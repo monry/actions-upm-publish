@@ -14,6 +14,10 @@ inputs:
     description: 'Version of Release'
     required: true
     default: ${{ github.event.release.tag_name }}
+  release_branch:
+    description: 'Branch name of Release'
+    required: true
+    default: ${{ github.event.release.target_commitish }}
   github_actor:
     description: 'GitHub actor name'
     required: true

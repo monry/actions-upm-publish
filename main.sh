@@ -17,7 +17,7 @@ git config --global user.email "github-actions@example.com"
 git config --global user.name "GitHub Actions"
 git checkout -b "temporary-$(date '+%Y%m%d%H%M%S')"
 git add .
-git commit -m ":up: Bump up version: ${INPUT_RELEASE_VERSION}" && git push "https://${INPUT_GITHUB_ACTOR}}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_GITHUB_REPOSITORY}.git" HEAD:${{ github.event.release.target_commitish }} || true
+git commit -m ":up: Bump up version: ${INPUT_RELEASE_VERSION}" && git push "https://${INPUT_GITHUB_ACTOR}}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_GITHUB_REPOSITORY}.git" HEAD:${INPUT_RELEASE_BRANCH} || true
 git tag -d ${INPUT_RELEASE_VERSION}
 git tag ${INPUT_RELEASE_VERSION}
 git push --tags --force
