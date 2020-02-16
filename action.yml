@@ -25,11 +25,9 @@ inputs:
   github_token:
     description: 'GitHub auth token'
     required: true
-    default: ${{ secrets.GITHUB_TOKEN }}
   npm_auth_token:
     description: 'Auth token for UPM Registry'
     required: true
-    default: ${{ secrets.NPM_AUTH_TOKEN }}
 runs:
   using: 'Docker'
   image: 'Dockerfile'
