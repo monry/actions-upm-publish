@@ -1,0 +1,6 @@
+name: 'Publish UPM'
+description: 'Publish Unity package to UPM Registry'
+author: 'Tetsuya Mori'
+runs:
+  using: 'Docker'
+  image: 'Dockerfile'
