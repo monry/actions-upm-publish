@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 cat << EOS | sed -i '1r /dev/stdin' Assets/CHANGELOG.md
 
 ## [${INPUT_RELEASE_VERSION##v}] - $(date "+%Y-%m-%d")
