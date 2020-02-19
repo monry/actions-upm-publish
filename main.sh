@@ -12,6 +12,10 @@ $(echo "${INPUT_RELEASE_BODY}" | sed 's/^#/\#\#/')
 EOS
 cat Assets/package.json | jq -Mr '. | .version = "'"${INPUT_RELEASE_VERSION##v}"'"' | tee Assets/package.json > /dev/null
 
+echo "DEBUG"
+cat Assets/package.json
+echo "DEBUG"
+
 echo $(cat .npmrc | grep '^registry=' | sed 's/^registry=https://')'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> ~/.npmrc
 npm publish Assets
 
