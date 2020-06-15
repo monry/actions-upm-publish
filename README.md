@@ -12,13 +12,7 @@
 1. Open Secrets settings<br />![image](https://user-images.githubusercontent.com/838945/74607506-af49b980-511c-11ea-9081-e8b23e695068.png)
 1. Add new secrets: Name: `NPM_AUTH_TOKEN`, Value: Your auth token of UPM Registry<br />![image](https://user-images.githubusercontent.com/838945/74607552-1cf5e580-511d-11ea-8407-941511298909.png)
 
-### 2. Put `.npmrc` on repository root
-
-```.npmrc
-registry=[UPM Registry URL]
-```
-
-### 3. Setup GitHub Actions Workflow
+### 2. Setup GitHub Actions Workflow
 
 Setup GitHub Actions Workflow as below example.
 
@@ -38,7 +32,18 @@ jobs:
     - uses: actions/checkout@v2
     - uses: monry/actions-upm-publish@v1
       with:
+        npm_registry_url: ${{ secrets.NPM_REGISTRY_URL }}
         npm_auth_token: ${{ secrets.NPM_AUTH_TOKEN }}
+```
+
+You can specify directory path of `package.json` by set path into `package_directory_path` (default: `Assets`)
+
+### Note: Registry URL
+
+You can also specify registry URL using `.npmrc` instead of specifying in actions workflow.
+
+```.npmrc
+registry=[UPM Registry URL]
 ```
 
 ## Usages
