@@ -11,7 +11,7 @@
 
 1. Open Secrets settings<br />![image](https://user-images.githubusercontent.com/838945/74607506-af49b980-511c-11ea-9081-e8b23e695068.png)
 1. Add new secrets: Name: `NPM_AUTH_TOKEN`, Value: Your auth token of UPM Registry<br />![image](https://user-images.githubusercontent.com/838945/74607552-1cf5e580-511d-11ea-8407-941511298909.png)
-1. Add new secrets: Name: `NPM_REGISTRY_URL`, Value: Your UPM Registry URL
+1. Add new secrets: Name: `NPM_REGISTRY_URL`, Value: Your UPM Registry URL.<br />![image](https://user-images.githubusercontent.com/838945/84682501-ad7bef80-af70-11ea-9868-4b53a497be3d.png)
 
 ### 2. Setup GitHub Actions Workflow
 
