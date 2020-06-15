@@ -14,7 +14,7 @@ cat Assets/package.json | jq -Mr '. | .version = "'"${INPUT_RELEASE_VERSION##v}"
 mv /tmp/package.json Assets/package.json
 
 if [ -n "${INPUT_NPM_REGISTRY_URL}" ]; then
-    echo $(echo "${INPUT_NPM_REGISTRY_URL}" | sed -e 's/^https?:\/\///')'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> ~/.npmrc
+    echo $(echo "${INPUT_NPM_REGISTRY_URL}" | sed -e 's/^https?://')'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> ~/.npmrc
 else
     echo $(cat .npmrc | grep '^registry=' | sed 's/^registry=https://')'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> ~/.npmrc
 fi
