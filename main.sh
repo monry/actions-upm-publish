@@ -12,8 +12,13 @@ $(echo "${INPUT_RELEASE_BODY}" | sed 's/^#/\#\#/')
 EOS
 cat Assets/package.json | jq -Mr '. | .version = "'"${INPUT_RELEASE_VERSION##v}"'"' > /tmp/package.json
 mv /tmp/package.json Assets/package.json
-echo $(cat .npmrc | grep '^registry=' | sed 's/^registry=https://')'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> ~/.npmrc
-npm publish Assets
+
+if [ -n "${INPUT_NPM_REGISTRY_URL}" ]; then
+    echo ${INPUT_NPM_REGISTRY_URL}'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> ~/.npmrc
+else
+    echo $(cat .npmrc | grep '^registry=' | sed 's/^registry=https://')'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> ~/.npmrc
+fi
+npm publish --registry ${INPUT_NPM_REGISTRY_URL} ${INPUT_PACKAGE_DIRECTORY_PATH}
 
 git config --global user.email "github-actions@example.com"
 git config --global user.name "GitHub Actions"

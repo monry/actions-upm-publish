@@ -32,6 +32,13 @@ inputs:
   github_token:
     description: 'GitHub auth token'
     required: true
+  package_directory_path:
+    description: 'Directory path of package.json'
+    required: true
+    default: 'Assets'
+  npm_registry_url:
+    description: 'URL of UPM Registry'
+    required: true
   npm_auth_token:
     description: 'Auth token for UPM Registry'
     required: true
