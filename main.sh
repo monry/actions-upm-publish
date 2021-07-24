@@ -21,11 +21,11 @@ else
 fi
 npm publish --tag latest --registry ${INPUT_NPM_REGISTRY_URL} ${INPUT_PACKAGE_DIRECTORY_PATH}
 
-git config --global user.email "github-actions@example.com"
-git config --global user.name "GitHub Actions"
+git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+git config --global user.name "github-actions[bot]"
 git checkout -b "temporary-$(date '+%Y%m%d%H%M%S')"
 git add .
-git commit -m ":up: Bump up version: ${INPUT_RELEASE_VERSION}" && git push "https://${INPUT_GITHUB_ACTOR}}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_GITHUB_REPOSITORY}.git" HEAD:${INPUT_RELEASE_BRANCH} || true
+git commit -m "chore(release): bump version to ${INPUT_RELEASE_VERSION}" && git push "https://${INPUT_GITHUB_ACTOR}}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_GITHUB_REPOSITORY}.git" HEAD:${INPUT_RELEASE_BRANCH} || true
 git tag -d ${INPUT_RELEASE_VERSION}
 git tag ${INPUT_RELEASE_VERSION}
 git push --tags --force
