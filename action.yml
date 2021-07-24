@@ -35,7 +35,7 @@ inputs:
   package_directory_path:
     description: 'Directory path of package.json'
     required: true
-    default: 'Assets'
+    default: '.'
   npm_registry_url:
     description: 'URL of UPM Registry'
     required: true
