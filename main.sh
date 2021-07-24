@@ -15,9 +15,9 @@ mv /tmp/package.json ${INPUT_PACKAGE_DIRECTORY_PATH}/package.json
 
 if [ -z "${INPUT_NPM_REGISTRY_URL}" ]; then
     INPUT_NPM_REGISTRY_URL=$(cat .npmrc | sed 's/^registry=//')
-    echo $(cat .npmrc | grep '^registry=' | sed 's/^registry=https?://')'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> ~/.npmrc
+    echo $(cat .npmrc | grep '^registry=' | sed 's/^registry=https?://')'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> .npmrc
 else
-    echo $(echo -n "${INPUT_NPM_REGISTRY_URL}" | sed 's/^https?://')'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> ~/.npmrc
+    echo $(echo -n "${INPUT_NPM_REGISTRY_URL}" | sed 's/^https?://')'/:_authToken="'${INPUT_NPM_AUTH_TOKEN}'"' >> .npmrc
 fi
 npm publish --tag latest --registry ${INPUT_NPM_REGISTRY_URL} ${INPUT_PACKAGE_DIRECTORY_PATH}
 
